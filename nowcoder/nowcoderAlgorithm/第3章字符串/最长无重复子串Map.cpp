@@ -4,15 +4,23 @@
 using namespace std;
 
 /**
-   最长无重复子串
-   https://www.cnblogs.com/haozhengfei/p/d0906ebc98f7b6eaecb3ecd738dc78ac.html
+ 最长无重复子串
+   对于一个字符串,请设计一个高效算法，找到字符串的最长无重复字符的子串长度。
+给定一个字符串A及它的长度n，请返回它的最长无重复字符子串长度。保证A中字符全部为小写英文字符，
+且长度小于等于500。
+测试样例：
+"aabcb",5
+返回：3
+   
+  图形解析：
+  https://www.cnblogs.com/haozhengfei/p/d0906ebc98f7b6eaecb3ecd738dc78ac.html
 */
 
 int max(int a , int b )
 {
 	return a > b ? a : b;
 }
-int longestSubString(string s,int n)
+int longestSubString(string s, int n)
 {
 	//存储字符在上次出现的位置
 	map<int, char> m;
@@ -28,7 +36,7 @@ int longestSubString(string s,int n)
 		int cur;
 		char ch = s[i];
 		//获取map中最早出现该字符的位置
-		if (m.find(ch)!=m.end())
+		if (m.find(ch) != m.end())
 		{
 			cur = m[ch];
 		}
@@ -57,10 +65,11 @@ int longestSubString(string s,int n)
 	return res;
 }
 
-int main()
+int main(int argc, char* arv[])
 {
 	string s = "aabcb";
 	cout << longestSubString(s,5) << endl;
 	getchar();
+	system("pause");
 	return 0;
 }
