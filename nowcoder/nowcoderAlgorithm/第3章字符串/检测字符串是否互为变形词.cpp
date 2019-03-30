@@ -22,7 +22,7 @@ bool chkTransform(string s1, string s2, int lena , int lenb)
 	int letter[256];
 	memset(letter,0,sizeof(letter));
 	//长度不相等
-	if (lena!=lenb)
+	if (lena != lenb)
 	{
 		return false;
 	}
@@ -50,7 +50,7 @@ int main()
 {
 	string s1 = "abc";
 	string s2 = "bac";
-	cout << chkTransform(s1 , s2 , 3 , 3)<< endl;
+	cout << chkTransform(s1, s2, 3, 3)<< endl;
 	getchar();
 	return 0;
 }

@@ -7,27 +7,26 @@ using namespace std;
 */
 bool isValid(string s , int n)
 {
-	int num = 0;
+	int num = 0; //做计数使用
 	for (int i = 0 ;i < n ; i++)
 	{
 		if (s[i] ==  '(')
 		{
-			num++;
+			num++;//不断增加，计算左边括号的总数
 		}
 		if(s[i] == ')')
 		{ 
 			num--;
 		}
-		if (num < 0)
+		if (num < 0) //说明左右括号数量不匹配
 		{
 			return false;
 		}
-
 	}
 	return num == 0;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	string s = "(()())";
 	cout << isValid(s,6) << endl;

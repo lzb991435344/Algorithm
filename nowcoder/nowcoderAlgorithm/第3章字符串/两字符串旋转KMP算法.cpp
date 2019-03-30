@@ -2,6 +2,11 @@
 #include <string>
 using namespace std;
 
+/**
+	如果一个字符串str，把字符串str前面的任意部分挪到后面形成的字符串叫做str的旋转词。
+给定两个字符串，判断是否互为旋转词。比如 a="abcd",b="cdab",true a="abcd",b="bcad",false
+*/
+
 //时间复杂度为O(M+N)
 //生成next数组
 int* generateNext(string B, int lenb)
@@ -51,7 +56,7 @@ int kmpSearch(string A, string B, int lena, int lenb)
 		}
 		else
 		{
-			j = next[j+1];
+			j = next[j + 1];
 		}
 	}
 	if (j == lenb)
@@ -71,15 +76,10 @@ bool chkRotation(string A, string B, int lena, int lenb)
 		return false;
 	 }
 	A = A + A;
-	int res = kmpSearch(A , B , lena , lenb);
+	int res = kmpSearch(A, B, lena, lenb);
 	return res != -1;
 }
-
-
-
-
-
-int main()
+int main(int argc, char* argv[])
 {
 	string  A = "abcighjukl";
 	string  B = "igh";
