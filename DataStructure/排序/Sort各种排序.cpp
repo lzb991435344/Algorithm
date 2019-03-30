@@ -118,6 +118,11 @@ void selectSort(int* arr, int n)
 @return:void
 @平均时间复杂度：O(N*logN)  空间度复杂度O(1)
 @稳定性：不稳定
+@common 实现堆排序需要实现的4个函数
+  heapMpdify() 堆的调整
+  buildHeap()  建堆
+  heapSort()   堆排序
+  swap()       交换数组中的元素
 */
 
 //堆的调整
