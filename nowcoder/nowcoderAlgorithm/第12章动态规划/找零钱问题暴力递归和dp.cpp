@@ -48,9 +48,9 @@ int process(vector<int> arr , int index , int  aim)
 		{
 			/**
 				递归进行：arr[index]   index++  数组中的每一个种类尝试
-				@param1 换钱的种类
-				@param2 index++，使用每一个换钱种类进行计算
-				@param3 使用当前的种类换钱之后剩余的钱数
+				@param1 面值种类
+				@param2 index++，对每一个面值进行计算
+				@param3  计算使用当前面值时候剩下的金额
 			*/
 			res += process(arr, index + 1, aim - arr[index] * i);
 		}
@@ -81,17 +81,17 @@ int countWays(vector<int> penny , int n , int aim)
 	int i;
 	//初始化第一列
 	//使用0...i个货币组成钱数0的方法数为1 就是都不使用
-	for (i=0;i<n;i++)
+	for (i = 0; i < n; i++)
 	{
 		dp[i][0] = 1;
 	}
 	//初始化第一行
 	//使用第0个货币组成钱数i的方法数，那就是说只有当钱数刚好能够
 	//整除第0个货币的面值时有一种方法
-	for (i=0;i<=aim;i++)
+	for (i = 0;i <= aim; i++)
 	{
 		//说明能够使用该面额
-		if (i % penny[0]==0)
+		if (i % penny[0] == 0)
 		{
 			dp[0][i] = 1;
 		}
@@ -100,20 +100,22 @@ int countWays(vector<int> penny , int n , int aim)
 			dp[0][i] = 0;
 		}
 	}
-	for (i=1;i<n;i++)
+
+
+	for (i = 1; i < n; i++)
 	{
-		for (int j=0;j<=aim;j++)
+		for (int j = 0; j <= aim; j++)
 		{
 
-			if(j>=penny[i])
+			if(j >= penny[i])
 			{
 			/*
 			dp[i][j]意义:
-			1.使用m张(m=0,1,2...)i货币组成j的方法数(使用0张dp[i-1][j-0*penny[i]],
+			  1.使用m张(m=0,1,2...)i货币组成j的方法数(使用0张dp[i-1][j-0*penny[i]],
 			使用1张dp[i-1][j-1*penny[i]],使用2张dp[i-1][j-2*penny[i]].....)
 			上面的公式其实就是把m=0和情况拆分了出来，后面的dp[i][j-penny[i]]表示m=1开始的情况
 			为什么dp[i][j-penny[i]]能表示m=1的情况呢？ 使用m张i货币组成j-penny[i]的方法数
-				*/
+			*/
 				dp[i][j] = dp[i-1][j] + dp[i][j-penny[i]];
 			}
 			else

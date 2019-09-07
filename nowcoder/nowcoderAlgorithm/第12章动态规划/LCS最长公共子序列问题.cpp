@@ -49,9 +49,9 @@ int findLCS(string s1 , string s2 , int n , int m )
 		//标志位为1或者当前值为0
 		if (flag == 1 || s1.at(0) == s2.at(j))
 		{
-			dp[0][j] = 1;
+		
+		}	dp[0][j] = 1;
 			flag = 1;
-		}
 		else
 		{
 			dp[0][j] = 0;
