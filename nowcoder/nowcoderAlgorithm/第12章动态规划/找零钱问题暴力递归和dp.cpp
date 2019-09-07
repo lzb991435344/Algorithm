@@ -21,20 +21,38 @@ arr=[3,5]，aim=2。
 
 */
 //暴力递归解决
+/**
+@function 换零钱的方法总数
+@param1 钱币的种类
+@param2 数组的下标索引
+@param3 换钱的目标总数 
+@return  换钱的方法总数 
+@author Blake
+@date 2019/09/07
+
+
+*/
 
 int process(vector<int> arr , int index , int  aim)
 {
 	int res = 0;
 	int i;
+	//递归出口，当索引等于数组的最大下标索引时，递归结束
 	if (index == arr.size())
 	{
 		return (aim == 0 ? 1 : 0);
 	}
 	else
 	{
-		for (i=0;aim>=(arr[index]*i);i++)
+		for (i = 0; aim >= (arr[index] * i); i++)
 		{
-			res += process(arr,index+1,aim-arr[index]*i);
+			/**
+				递归进行：arr[index]   index++  数组中的每一个种类尝试
+				@param1 换钱的种类
+				@param2 index++，使用每一个换钱种类进行计算
+				@param3 使用当前的种类换钱之后剩余的钱数
+			*/
+			res += process(arr, index + 1, aim - arr[index] * i);
 		}
 	}  
 	return res;
@@ -43,10 +61,12 @@ int process(vector<int> arr , int index , int  aim)
 //0-aim的所有可能
 int getCoinSort(vector<int> arr , int aim)
 {
-	if (arr.empty() ||aim < 0)
+	//递归出口
+	if (arr.empty() || aim < 0)
 	{
 		return 0;
 	}
+	//递归开始，从数组下标0开始
 	return process(arr , 0 , aim);
 }
 

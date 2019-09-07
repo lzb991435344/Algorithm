@@ -77,7 +77,7 @@ int findMinCost(string A, int n, string B, int m, int c0, int c1, int c2) {
 }
 
 int min(int a, int b) {
-	return a>b ? b : a;
+	return a > b ? b : a;
 }
 int main()
 {

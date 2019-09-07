@@ -41,7 +41,8 @@ int findLCS(string s1 , string s2 , int n , int m )
 			dp[i][0] = 0;
 		}
 	}
-	flag = 0;
+
+	flag = 0;//初始化重置标志位
 	//初始化第一行
 	for (int j = 0 ; j < m ; j++) 
 	{
@@ -79,6 +80,7 @@ int findLCS(string s1 , string s2 , int n , int m )
 			}
 		}
 	}
+	//数组中存的是最长的公共子序列
 	return dp[n-1][m-1];
 }
 
