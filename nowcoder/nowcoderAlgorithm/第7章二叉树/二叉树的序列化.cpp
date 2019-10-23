@@ -24,8 +24,9 @@ class  TreetoStr
 public:
 	string inttostring(int n)
 	{
-		string s;
+		
 		char a = '0';
+		string s;
 		while (n>0)
 		{
 			char ch = a + n % 10;
