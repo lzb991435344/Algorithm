@@ -8,9 +8,9 @@ using namespace std;
    将 helloworld 右移两位为 ldhellowor  .
 */
 /**
-  (1)先把全部字符串翻转
-  (2)把（0,len）翻转
-  (3)把（len,end）翻转
+  (1)先把全部字符串翻转 dlrowolleh
+  (2)把（0,len）翻转    ldrowolleh
+  (3)把（len,end）翻转  ldhellowor
 */
 string moveString(string s, int n, int len)
 {

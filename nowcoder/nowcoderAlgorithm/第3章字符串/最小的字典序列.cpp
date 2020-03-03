@@ -43,7 +43,7 @@ string findSmallest(vector<string> str, int n, int len)
 		   if (str1 > str2)
 		   {
 			  swap(str, j,  j + 1);
-           }
+       }
 	  }
 	 i = pos;
 	}
