@@ -88,7 +88,7 @@ int insertPreSeqList(pSeqList palist, int p, DataType x)
 		return false;
 	}
 	//位置不合理
-	if (p<0 || p>palist->MaxNum - 1)
+	if (p < 0 || p>palist->MaxNum - 1)
 	{
 		printf("Not Exist!\n");
 		return false;

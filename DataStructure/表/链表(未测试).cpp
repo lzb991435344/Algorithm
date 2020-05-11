@@ -25,7 +25,7 @@ typedef struct Node*  LinkList;
 LinkList createNULLLinkList()
 {
 	LinkList linklist = (LinkList)malloc(sizeof(struct Node));
-	if (linklist!=NULL)
+	if (linklist != NULL)
 	{
 		linklist->link = NULL;
 	}

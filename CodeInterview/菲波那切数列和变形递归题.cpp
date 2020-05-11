@@ -54,7 +54,8 @@ public:
 	static int pre;//保存的是f(n)的值
 	static int post;//保存的是f(n-1)的值
 	int temp;
-	int Fibonacci3(int n)
+	
+int Fibonacci3(int n)
 	{
 		if (n < 2)
 		{
@@ -94,7 +95,6 @@ public:
 		post = temp *temp + post * post;
 		return pre;
 	}
-
 	//跳台阶，只能跳1,2级
 	int jumpFloor(int n)
 	{
