@@ -2,6 +2,7 @@ package CodePractice;
 
 public class problem_01_PosArrayToBST {
 
+    //节点类型
     public static class Node{
         public int value;
         public Node left;
@@ -91,6 +92,7 @@ public class problem_01_PosArrayToBST {
             int right = r;
             //二分
             while(left < right){
+                //防溢出写法
                 // int mid = left + (right - left)>>1
                 int mid = left + (right - left)/2;
                 if(posArr[mid] < posArr[r]){
