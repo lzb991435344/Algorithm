@@ -13,7 +13,7 @@
 #include <vector>
 using namespace std;
 
-//区间并集
+//区间并集 
  class Solution {
         public:
             vector<vector<int>> merge(vector<vector<int>>& intervals) {
