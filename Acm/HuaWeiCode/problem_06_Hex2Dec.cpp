@@ -36,7 +36,7 @@ int main()
         //剔除 ox字符
         for(int i = 2; i < str.length(); i++)
         {
-            if(str[i] >= '0'&& str[i] <= '9')
+            if(str[i] >= '0'&& str[i] <= '9') //数字的情况
             {
                 num = num * 16 + (str[i] - '0');
             }
