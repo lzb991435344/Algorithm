@@ -29,12 +29,12 @@ private:
       {0, -1},
       {1, 0},
       {-1, 0}};
-  vector<vector<bool>> visited;
+  vector<vector<bool> > visited;
   int n, m;
 
 public:
   // bfs
-  int numIslands(vector<vector<char>> &grid)
+  int numIslands(vector<vector<char> > &grid)
   {
     n = grid.size();
     if (n == 0)
@@ -44,7 +44,7 @@ public:
     m = grid[0].size();
 
     //用于标记是否访问过
-    visited = vector<vector<bool>>(n, vector<bool>(m, false));
+    visited = vector<vector<bool> >(n, vector<bool>(m, false));
     int ans = 0;
     for (int i = 0; i < n; i++)
     {
@@ -73,7 +73,7 @@ public:
 //(2)新节点是岛
 //(3)新节点未超出边界
 
-queue<pair<int, int>> q;
+queue<pair<int, int> > q;
 q.push({i, j});
 while (!q.empty())
 {
@@ -149,7 +149,7 @@ private:
 
 public:
   // bfs
-  int numIslands(vector<vector<char>> &grid)
+  int numIslands(vector<vector<char> > &grid)
   {
     n = grid.size();
     if (n == 0)
@@ -158,7 +158,7 @@ public:
     }
     m = grid[0].size();
 
-    visited = vector<vector<bool>>(n, vector<bool>(m, false));
+    visited = vector<vector<bool> >(n, vector<bool>(m, false));
     int ans = 0;
     for (int i = 0; i < n; i++)
     {
@@ -209,11 +209,11 @@ private:
       {0, -1},
       {1, 0},
       {-1, 0}};
-  vector<vector<bool>> visited;
+  vector<vector<bool> > visited;
   int n, m;
 
 public:
-  int numIslands(vector<vector<char>> &grid)
+  int numIslands(vector<vector<char> > &grid)
   {
     n = grid.size();
     if (n == 0)
@@ -222,7 +222,7 @@ public:
     }
     m = grid[0].size();
 
-    visited = vector<vector<bool>>(n, vector<bool>(m, false));
+    visited = vector<vector<bool> >(n, vector<bool>(m, false));
 
     int ans = 0;
     for (int i = 0; i < n; i++)
@@ -239,7 +239,7 @@ public:
     return ans;
   }
 
-  int dfs(vector<vector<char>> &grid, int x, int y)
+  int dfs(vector<vector<char> > &grid, int x, int y)
   {
     if (!inArea(x, y) || (inArea(x, y) && visited[x][y]) || grid[x][y] == '0')
       return 0;
