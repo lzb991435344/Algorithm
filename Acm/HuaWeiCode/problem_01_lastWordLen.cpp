@@ -41,5 +41,5 @@ int main(){
     }
     return 0;
 }
-
+//get the last world length
 //ps:已测试
