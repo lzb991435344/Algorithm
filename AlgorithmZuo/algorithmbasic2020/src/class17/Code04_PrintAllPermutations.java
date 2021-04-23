@@ -19,12 +19,15 @@ public class Code04_PrintAllPermutations {
 		f(rest, path, ans);
 		return ans;
 	}
-
+        //str[0....i]已经做好的决定
+	//str[i...]都有机会来到i位置
+	//i终止位置，str当前的结果就是最终的结果
 	public static void f(ArrayList<Character> rest, String path, List<String> ans) {
 		if (rest.isEmpty()) {
 			ans.add(path);
 		} else {
 			int N = rest.size();
+			//i未终止，都有机会来到i位置
 			for (int i = 0; i < N; i++) {
 				char cur = rest.get(i);
 				rest.remove(i);
@@ -70,8 +73,10 @@ public class Code04_PrintAllPermutations {
 		if (index == str.length) {
 			ans.add(String.valueOf(str));
 		} else {
+			//标记当前的字符
 			boolean[] visited = new boolean[256];
 			for (int i = index; i < str.length; i++) {
+				//该字符未出现过，走分支
 				if (!visited[str[i]]) {
 					visited[str[i]] = true;
 					swap(str, index, i);
