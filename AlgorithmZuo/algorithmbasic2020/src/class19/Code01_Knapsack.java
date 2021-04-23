@@ -15,20 +15,26 @@ public class Code01_Knapsack {
 	}
 
 	// index 0~N
-	// rest 负~bag
+	// rest 负~bag  剩余多少空间
+	// index 货物自由选择  不变值w，v，bag
 	public static int process(int[] w, int[] v, int index, int rest) {
-		if (rest < 0) {
+		if (rest < 0) { //base case1
 			return -1;
 		}
-		if (index == w.length) {
+		if (index == w.length) { //base case2
 			return 0;
 		}
+		//有货也有空间  不要index货物位置产生的价值
 		int p1 = process(w, v, index + 1, rest);
 		int p2 = 0;
+
+		//要当前的货物产生的价值，剩余空间变小  要index位置的货物
 		int next = process(w, v, index + 1, rest - w[index]);
 		if (next != -1) {
 			p2 = v[index] + next;
 		}
+
+		//两者中取得最大的值
 		return Math.max(p1, p2);
 	}
 
