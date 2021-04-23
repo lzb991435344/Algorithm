@@ -14,10 +14,11 @@ public class Code02_ConvertToLetterString {
 	// str[0..i-1]转化无需过问
 	// str[i.....]去转化，返回有多少种转化方法
 	public static int process(char[] str, int i) {
-		if (i == str.length) {
-			return 1;
+		//base case
+		if (i == str.length) {//return 1;的2种解释
+			return 1;//没有字符的时候能不能转化；0..i-1已经转化完成收到的一种有效转化
 		}
-		// i没到最后，说明有字符
+		// i没到最后，说明有字符，特殊情况'012' 或 '10'
 		if (str[i] == '0') { // 之前的决定有问题
 			return 0;
 		}
