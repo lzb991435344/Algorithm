@@ -16,17 +16,18 @@ public class Code01_RobotWalk {
 	// 返回：机器人从cur出发，走过rest步之后，最终停在aim的方法数，是多少？
 	public static int process1(int cur, int rest, int aim, int N) {
 		if (rest == 0) { // 如果已经不需要走了，走完了！
-			return cur == aim ? 1 : 0;
+			return cur == aim ? 1 : 0;//有效和无效
 		}
 		// (cur, rest)
-		if (cur == 1) { // 1 -> 2
+		if (cur == 1) { // 1 -> 2 //来到1的位置，无法往左走，只能往右走
 			return process1(2, rest - 1, aim, N);
 		}
 		// (cur, rest)
-		if (cur == N) { // N-1 <- N
+		if (cur == N) { // N-1 <- N //来到N位置，只能往左走
 			return process1(N - 1, rest - 1, aim, N);
 		}
 		// (cur, rest)
+		// 往左走，往右走总和
 		return process1(cur - 1, rest - 1, aim, N) + process1(cur + 1, rest - 1, aim, N);
 	}
 
