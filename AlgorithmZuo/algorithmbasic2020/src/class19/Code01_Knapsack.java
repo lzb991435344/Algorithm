@@ -44,17 +44,24 @@ public class Code01_Knapsack {
 		}
 		int N = w.length;
 		int[][] dp = new int[N + 1][bag + 1];
+		//处理 index 和 rest位置 dp[index][rest]
 		for (int index = N - 1; index >= 0; index--) {
 			for (int rest = 0; rest <= bag; rest++) {
-				int p1 = dp[index + 1][rest];
+
+				int p1 = dp[index + 1][rest];//依赖关系
 				int p2 = 0;
+
+				//dp[index + 1][rest - w[index]] 剩余的rest值
 				int next = rest - w[index] < 0 ? -1 : dp[index + 1][rest - w[index]];
+
+				//判断值是否有效？
 				if (next != -1) {
 					p2 = v[index] + next;
 				}
 				dp[index][rest] = Math.max(p1, p2);
 			}
 		}
+		//最终选择右上角的值  dp[0][bag]
 		return dp[0][bag];
 	}
 
