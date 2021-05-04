@@ -82,6 +82,7 @@ public class Code02_CardsInLine {
 		return ans;
 	}
 
+	//dp解
 	public static int win3(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return 0;
@@ -90,12 +91,13 @@ public class Code02_CardsInLine {
 		int[][] fmap = new int[N][N];
 		int[][] gmap = new int[N][N];
 		for (int i = 0; i < N; i++) {
-			fmap[i][i] = arr[i];
+			fmap[i][i] = arr[i];//初始化对角线的位置，对角线左下部分全部无作用
 		}
 		for (int startCol = 1; startCol < N; startCol++) {
 			int L = 0;
-			int R = startCol;
+			int R = startCol; //i位置，每条对角线初始的位置变化
 			while (R < N) {
+				//递归中的依赖关系
 				fmap[L][R] = Math.max(arr[L] + gmap[L + 1][R], arr[R] + gmap[L][R - 1]);
 				gmap[L][R] = Math.min(fmap[L + 1][R], fmap[L][R - 1]);
 				L++;
