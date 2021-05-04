@@ -38,17 +38,18 @@ public class Code02_ConvertToLetterString {
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int[] dp = new int[N + 1];
-		dp[N] = 1;
+		dp[N] = 1;//对应的终极位置 N == str.length
+		//dp表从右往左填写
 		for (int i = N - 1; i >= 0; i--) {
 			if (str[i] != '0') {
-				int ways = dp[i + 1];
+				int ways = dp[i + 1];//先得到i+1位置，再考虑i+2的位置
 				if (i + 1 < str.length && (str[i] - '0') * 10 + str[i + 1] - '0' < 27) {
 					ways += dp[i + 2];
 				}
 				dp[i] = ways;
 			}
 		}
-		return dp[0];
+		return dp[0];//需要的是0状态
 	}
 
 	public static void main(String[] args) {
