@@ -12,10 +12,13 @@ public class Code03_CoinsWayNoLimit {
 	// arr[index....] 所有的面值，每一个面值都可以任意选择张数，组成正好rest这么多钱，方法数多少？
 	public static int process(int[] arr, int index, int rest) {
 		if (index == arr.length) { // 没钱了
-			return rest == 0 ? 1 : 0;
+			return rest == 0 ? 1 : 0;//rest == 0时，返回一种成功的方法，否则不成功
 		}
 		int ways = 0;
+		//循环终止条件，得到的值小于rest
 		for (int zhang = 0; zhang * arr[index] <= rest; zhang++) {
+			//剩余的数量 rest - (zhang * arr[index]
+			//位置 index + 1
 			ways += process(arr, index + 1, rest - (zhang * arr[index]));
 		}
 		return ways;
